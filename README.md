@@ -1,5 +1,5 @@
 # pset6 
-### Fianal app
+### Final app project
 
 * Diederick Calkoen 
   10684883 
