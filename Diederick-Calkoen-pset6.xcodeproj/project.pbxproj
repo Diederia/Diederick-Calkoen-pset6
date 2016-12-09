@@ -7,21 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A7B0CE2A93EC4712A8516276 /* libPods-Diederick-Calkoen-pset6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9CAD1F6C55A112256192C7 /* libPods-Diederick-Calkoen-pset6.a */; };
 		E95C6DF21DF414E800ADEDFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C6DF11DF414E800ADEDFC /* AppDelegate.swift */; };
-		E95C6DF41DF414E800ADEDFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C6DF31DF414E800ADEDFC /* ViewController.swift */; };
-		E95C6DF71DF414E800ADEDFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E95C6DF51DF414E800ADEDFC /* Main.storyboard */; };
-		E95C6DF91DF414E800ADEDFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E95C6DF81DF414E800ADEDFC /* Assets.xcassets */; };
 		E95C6DFC1DF414E800ADEDFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E95C6DFA1DF414E800ADEDFC /* LaunchScreen.storyboard */; };
+		E9B563AA1DF96A78004F3731 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B563A91DF96A78004F3731 /* CustomCell.swift */; };
+		E9B563B41DF97A8B004F3731 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B563B31DF97A8B004F3731 /* SearchViewController.swift */; };
+		E9B563B61DF9E3E1004F3731 /* GlobalStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B563B51DF9E3E1004F3731 /* GlobalStructs.swift */; };
+		E9B563BB1DFB0E75004F3731 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B563BA1DFB0E75004F3731 /* RecipeViewController.swift */; };
+		E9B563BE1DFB3CBB004F3731 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9B563BC1DFB3CBB004F3731 /* Main.storyboard */; };
+		E9BA0D071DF578D8002A8E81 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9BA0D061DF578D8002A8E81 /* GoogleService-Info.plist */; };
+		E9BA0D111DF891F2002A8E81 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BA0D101DF891F2002A8E81 /* HomeViewController.swift */; };
+		E9BA0D131DF89513002A8E81 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BA0D121DF89513002A8E81 /* LoginViewController.swift */; };
+		E9BA0D161DF944C3002A8E81 /* RegsiterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BA0D151DF944C3002A8E81 /* RegsiterViewController.swift */; };
+		E9BA0D191DF94A44002A8E81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9BA0D181DF94A44002A8E81 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F9CAD1F6C55A112256192C7 /* libPods-Diederick-Calkoen-pset6.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Diederick-Calkoen-pset6.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6237179D23B3C5FEEDF37999 /* Pods-Diederick-Calkoen-pset6.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diederick-Calkoen-pset6.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Diederick-Calkoen-pset6/Pods-Diederick-Calkoen-pset6.debug.xcconfig"; sourceTree = "<group>"; };
+		A1F5E61CF0783CAF5A30DB2E /* Pods-Diederick-Calkoen-pset6.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diederick-Calkoen-pset6.release.xcconfig"; path = "Pods/Target Support Files/Pods-Diederick-Calkoen-pset6/Pods-Diederick-Calkoen-pset6.release.xcconfig"; sourceTree = "<group>"; };
 		E95C6DEE1DF414E800ADEDFC /* Diederick-Calkoen-pset6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Diederick-Calkoen-pset6.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95C6DF11DF414E800ADEDFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E95C6DF31DF414E800ADEDFC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E95C6DF61DF414E800ADEDFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E95C6DF81DF414E800ADEDFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E95C6DFB1DF414E800ADEDFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E95C6DFD1DF414E800ADEDFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9B563A91DF96A78004F3731 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		E9B563B31DF97A8B004F3731 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		E9B563B51DF9E3E1004F3731 /* GlobalStructs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalStructs.swift; sourceTree = "<group>"; };
+		E9B563BA1DFB0E75004F3731 /* RecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		E9B563BD1DFB3CBB004F3731 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E9BA0D061DF578D8002A8E81 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E9BA0D101DF891F2002A8E81 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E9BA0D121DF89513002A8E81 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E9BA0D151DF944C3002A8E81 /* RegsiterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegsiterViewController.swift; sourceTree = "<group>"; };
+		E9BA0D181DF94A44002A8E81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../Diederick-Calkoen-pset5/Diederick-Calkoen-pset5/Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +47,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7B0CE2A93EC4712A8516276 /* libPods-Diederick-Calkoen-pset6.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		417FA59C39B3DF402958268C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6237179D23B3C5FEEDF37999 /* Pods-Diederick-Calkoen-pset6.debug.xcconfig */,
+				A1F5E61CF0783CAF5A30DB2E /* Pods-Diederick-Calkoen-pset6.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7DAA8AE45E2372D64DE55077 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F9CAD1F6C55A112256192C7 /* libPods-Diederick-Calkoen-pset6.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E95C6DE51DF414E700ADEDFC = {
 			isa = PBXGroup;
 			children = (
 				E95C6DF01DF414E800ADEDFC /* Diederick-Calkoen-pset6 */,
 				E95C6DEF1DF414E800ADEDFC /* Products */,
+				417FA59C39B3DF402958268C /* Pods */,
+				7DAA8AE45E2372D64DE55077 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,11 +93,18 @@
 			isa = PBXGroup;
 			children = (
 				E95C6DF11DF414E800ADEDFC /* AppDelegate.swift */,
-				E95C6DF31DF414E800ADEDFC /* ViewController.swift */,
-				E95C6DF51DF414E800ADEDFC /* Main.storyboard */,
-				E95C6DF81DF414E800ADEDFC /* Assets.xcassets */,
+				E9BA0D121DF89513002A8E81 /* LoginViewController.swift */,
+				E9BA0D151DF944C3002A8E81 /* RegsiterViewController.swift */,
+				E9BA0D101DF891F2002A8E81 /* HomeViewController.swift */,
+				E9B563B31DF97A8B004F3731 /* SearchViewController.swift */,
+				E9B563BA1DFB0E75004F3731 /* RecipeViewController.swift */,
+				E9B563A91DF96A78004F3731 /* CustomCell.swift */,
+				E9B563B51DF9E3E1004F3731 /* GlobalStructs.swift */,
+				E9B563BC1DFB3CBB004F3731 /* Main.storyboard */,
+				E9BA0D181DF94A44002A8E81 /* Assets.xcassets */,
 				E95C6DFA1DF414E800ADEDFC /* LaunchScreen.storyboard */,
 				E95C6DFD1DF414E800ADEDFC /* Info.plist */,
+				E9BA0D061DF578D8002A8E81 /* GoogleService-Info.plist */,
 			);
 			path = "Diederick-Calkoen-pset6";
 			sourceTree = "<group>";
@@ -71,9 +116,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E95C6E001DF414E800ADEDFC /* Build configuration list for PBXNativeTarget "Diederick-Calkoen-pset6" */;
 			buildPhases = (
+				D226FC305BDAF0BF165DFCDE /* 📦 Check Pods Manifest.lock */,
 				E95C6DEA1DF414E700ADEDFC /* Sources */,
 				E95C6DEB1DF414E700ADEDFC /* Frameworks */,
 				E95C6DEC1DF414E700ADEDFC /* Resources */,
+				DBDEA772D2C444D251F484B8 /* 📦 Embed Pods Frameworks */,
+				47DD12BDD0AF18E5F3BFC5FE /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,40 +172,95 @@
 			buildActionMask = 2147483647;
 			files = (
 				E95C6DFC1DF414E800ADEDFC /* LaunchScreen.storyboard in Resources */,
-				E95C6DF91DF414E800ADEDFC /* Assets.xcassets in Resources */,
-				E95C6DF71DF414E800ADEDFC /* Main.storyboard in Resources */,
+				E9BA0D071DF578D8002A8E81 /* GoogleService-Info.plist in Resources */,
+				E9BA0D191DF94A44002A8E81 /* Assets.xcassets in Resources */,
+				E9B563BE1DFB3CBB004F3731 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		47DD12BDD0AF18E5F3BFC5FE /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Diederick-Calkoen-pset6/Pods-Diederick-Calkoen-pset6-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D226FC305BDAF0BF165DFCDE /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DBDEA772D2C444D251F484B8 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Diederick-Calkoen-pset6/Pods-Diederick-Calkoen-pset6-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E95C6DEA1DF414E700ADEDFC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E95C6DF41DF414E800ADEDFC /* ViewController.swift in Sources */,
+				E9BA0D131DF89513002A8E81 /* LoginViewController.swift in Sources */,
+				E9B563B41DF97A8B004F3731 /* SearchViewController.swift in Sources */,
 				E95C6DF21DF414E800ADEDFC /* AppDelegate.swift in Sources */,
+				E9BA0D161DF944C3002A8E81 /* RegsiterViewController.swift in Sources */,
+				E9B563BB1DFB0E75004F3731 /* RecipeViewController.swift in Sources */,
+				E9B563AA1DF96A78004F3731 /* CustomCell.swift in Sources */,
+				E9BA0D111DF891F2002A8E81 /* HomeViewController.swift in Sources */,
+				E9B563B61DF9E3E1004F3731 /* GlobalStructs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E95C6DF51DF414E800ADEDFC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E95C6DF61DF414E800ADEDFC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E95C6DFA1DF414E800ADEDFC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				E95C6DFB1DF414E800ADEDFC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E9B563BC1DFB3CBB004F3731 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9B563BD1DFB3CBB004F3731 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -258,6 +361,7 @@
 		};
 		E95C6E011DF414E800ADEDFC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6237179D23B3C5FEEDF37999 /* Pods-Diederick-Calkoen-pset6.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Diederick-Calkoen-pset6/Info.plist";
@@ -270,6 +374,7 @@
 		};
 		E95C6E021DF414E800ADEDFC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1F5E61CF0783CAF5A30DB2E /* Pods-Diederick-Calkoen-pset6.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Diederick-Calkoen-pset6/Info.plist";
@@ -299,6 +404,7 @@
 				E95C6E021DF414E800ADEDFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
