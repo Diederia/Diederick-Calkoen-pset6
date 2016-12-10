@@ -29,4 +29,8 @@ struct globalStruct {
     static var searchImages: Array<String> = []
     static var searchUrls: Array<String> = []
     static var searchIngredients: Array<String> = []
+    
+    // MARK: Functions
+
+    
 }

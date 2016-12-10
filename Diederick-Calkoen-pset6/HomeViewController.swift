@@ -19,13 +19,14 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.reloadTableView()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+        self.clearSearchData()
     }
     
     // MARK: Actions
@@ -60,6 +61,16 @@ class HomeViewController: UIViewController {
     func updateStorage() {
 
     }
+    
+    func clearSearchData() {
+        globalStruct.recipeSearchRequest.removeAll()
+        globalStruct.currentIndex = 0
+        globalStruct.searchTitles.removeAll()
+        globalStruct.searchImages.removeAll()
+        globalStruct.searchUrls.removeAll()
+        globalStruct.searchIngredients.removeAll()
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -105,6 +116,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         currentIndex = indexPath.row
+        globalStruct.currentIndex = indexPath.row
+        self.performSegue(withIdentifier: "savedToRecipe", sender: self)
     }
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        let recipeVC = segue.destination as! RecipeViewController

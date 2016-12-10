@@ -13,6 +13,7 @@ class SearchViewController: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var textFieldRecipeSearch: UITextField!
     
     var searchRequest: String?
     var currentIndex: Int?
@@ -29,12 +30,35 @@ class SearchViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func returnDidTouch(_ sender: Any) {
+        searchRecipe()
+    }
+    
+    @IBAction func searchDidTouch(_ sender: Any) {
+        searchRecipe()
+    }
     
     // MARK: Functions
     func searchRecipe() {
-
+        
+        // MARK: Clear all global arrays of search
+        self.clearSearchData()
+        
+        if textFieldRecipeSearch.text != "" {
+            searchRequest = textFieldRecipeSearch.text?.replacingOccurrences(of: " ", with: "," )
+        } else if globalStruct.recipeSearchRequest != "" {
+            searchRequest = globalStruct.recipeSearchRequest.replacingOccurrences(of: " ", with: "," )
+        } else {
+            let alertController = UIAlertController(title: "No input provided", message:
+                "Enter a recipe title or ingredient.", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+        
         // make url, also for search of more than one ingredient.
-        searchRequest = globalStruct.recipeSearchRequest.replacingOccurrences(of: " ", with: "," )
+
         
         // Source: http://www.learnswiftonline.com/mini-tutorials/how-to-download-and-read-json/
         let requestURL: NSURL = NSURL(string: "http://www.recipepuppy.com/api/?q=" + searchRequest!)!
@@ -87,7 +111,15 @@ class SearchViewController: UIViewController {
         }
         
         task.resume()
-        globalStruct.recipeSearchRequest = ""
+        globalStruct.recipeSearchRequest.removeAll()
+    }
+    
+    func clearSearchData() {
+        globalStruct.currentIndex = 0
+        globalStruct.searchTitles.removeAll()
+        globalStruct.searchImages.removeAll()
+        globalStruct.searchUrls.removeAll()
+        globalStruct.searchIngredients.removeAll()
     }
     
     func reloadTableView() {

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yFo-ig-bg0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kIg-OS-1B6">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -51,7 +50,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saved recipes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWH-iR-cS5">
                                 <rect key="frame" x="87" y="218" width="200" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -64,35 +63,26 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Elm-lb-rwf" id="SRb-xg-AFw">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zka-8M-y99">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zka-8M-y99">
                                                     <rect key="frame" x="8" y="10" width="80" height="80"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="80" id="293-fF-xJ2"/>
-                                                    </constraints>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFs-rd-bbZ">
-                                                    <rect key="frame" x="96" y="40" width="239" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Title" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Oi-fL-Xa8">
+                                                    <rect key="frame" x="96" y="9" width="239" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Zka-8M-y99" firstAttribute="centerY" secondItem="gFs-rd-bbZ" secondAttribute="centerY" id="BiG-a3-UJq"/>
-                                                <constraint firstItem="Zka-8M-y99" firstAttribute="top" secondItem="SRb-xg-AFw" secondAttribute="topMargin" constant="2" id="Qlh-uC-1lM"/>
-                                                <constraint firstItem="Zka-8M-y99" firstAttribute="leading" secondItem="SRb-xg-AFw" secondAttribute="leadingMargin" id="SK0-sM-896"/>
-                                                <constraint firstItem="Zka-8M-y99" firstAttribute="centerY" secondItem="SRb-xg-AFw" secondAttribute="centerY" id="cTz-6c-Oso"/>
-                                                <constraint firstItem="gFs-rd-bbZ" firstAttribute="leading" secondItem="Zka-8M-y99" secondAttribute="trailing" constant="8" symbolic="YES" id="lJJ-bW-5wJ"/>
-                                                <constraint firstItem="gFs-rd-bbZ" firstAttribute="trailing" secondItem="SRb-xg-AFw" secondAttribute="trailingMargin" id="qN7-Ta-S4D"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="0.44513866159999999" blue="0.39097257330000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="savedImage" destination="Zka-8M-y99" id="3Bq-kT-Gj1"/>
-                                            <outlet property="savedTitle" destination="gFs-rd-bbZ" id="sub-PZ-Mth"/>
+                                            <outlet property="savedTitle" destination="5Oi-fL-Xa8" id="ADo-li-aOI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -133,7 +123,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KeR-CB-dDD">
-                                <rect key="frame" x="16" y="243" width="343" height="404"/>
+                                <rect key="frame" x="16" y="255" width="343" height="404"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.44513866159999999" blue="0.39097257330000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -141,35 +131,26 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T3p-mL-Ecu" id="dZj-NF-Bf5">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="89"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gJA-bP-kro">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gJA-bP-kro">
                                                     <rect key="frame" x="8" y="4" width="80" height="80"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="80" id="sdf-ZJ-6YU"/>
-                                                    </constraints>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcV-ui-MmZ">
-                                                    <rect key="frame" x="96" y="34" width="239" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Title" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNT-HL-YSP">
+                                                    <rect key="frame" x="96" y="4" width="239" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="pcV-ui-MmZ" firstAttribute="trailing" secondItem="dZj-NF-Bf5" secondAttribute="trailingMargin" id="QDE-5m-vyr"/>
-                                                <constraint firstItem="gJA-bP-kro" firstAttribute="centerY" secondItem="pcV-ui-MmZ" secondAttribute="centerY" id="VRv-bc-Smy"/>
-                                                <constraint firstItem="gJA-bP-kro" firstAttribute="top" secondItem="dZj-NF-Bf5" secondAttribute="topMargin" constant="-4" id="lCa-MX-n7v"/>
-                                                <constraint firstItem="gJA-bP-kro" firstAttribute="centerY" secondItem="dZj-NF-Bf5" secondAttribute="centerY" id="mmO-21-jBv"/>
-                                                <constraint firstItem="gJA-bP-kro" firstAttribute="leading" secondItem="dZj-NF-Bf5" secondAttribute="leadingMargin" id="ow0-EL-vm6"/>
-                                                <constraint firstItem="pcV-ui-MmZ" firstAttribute="leading" secondItem="gJA-bP-kro" secondAttribute="trailing" constant="8" symbolic="YES" id="trl-FR-hp2"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="0.44513866159999999" blue="0.39097257330000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="searchImage" destination="gJA-bP-kro" id="Y4q-gl-OX1"/>
-                                            <outlet property="searchTitle" destination="pcV-ui-MmZ" id="zgq-dN-ZGP"/>
+                                            <outlet property="searchTitle" destination="mNT-HL-YSP" id="EfX-by-lIs"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -179,17 +160,42 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBe-KK-CVH">
-                                <rect key="frame" x="82" y="206" width="211" height="29"/>
+                                <rect key="frame" x="82" y="218" width="211" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a recipe or ingredient " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UYF-Vy-OVt">
+                                <rect key="frame" x="16" y="180" width="275" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="returnDidTouch:" destination="1Cy-ZQ-H5O" eventType="editingDidEndOnExit" id="lXp-JM-NMn"/>
+                                    <action selector="returnDidTouch:" destination="lnj-gZ-W8i" eventType="editingDidEndOnExit" id="zRc-Ck-zJV"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDr-pf-49x">
+                                <rect key="frame" x="299" y="180" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.054508252209999997" green="0.52157451919999998" blue="0.083333867970000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchDidTouch:" destination="1Cy-ZQ-H5O" eventType="touchUpInside" id="JdD-TG-Wfv"/>
+                                    <action selector="searchDidTouch:" destination="lnj-gZ-W8i" eventType="touchUpInside" id="lo7-Xz-ZfE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.44513866159999999" blue="0.39097257330000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="KeR-CB-dDD" id="X0R-GQ-NTu"/>
+                        <outlet property="textFieldRecipeSearch" destination="UYF-Vy-OVt" id="UDW-7U-DMZ"/>
                         <segue destination="aaY-8S-ZAC" kind="show" identifier="resultToRecipe" id="2bL-uE-4X9"/>
                     </connections>
                 </viewController>
@@ -213,50 +219,55 @@
                                 <rect key="frame" x="137" y="72" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUN-PS-Req">
-                                <rect key="frame" x="16" y="180" width="343" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="25"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tTb-jY-kPf">
-                                <rect key="frame" x="16" y="235" width="140" height="140"/>
+                                <rect key="frame" x="16" y="291" width="140" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XvD-SM-3eP">
-                                <rect key="frame" x="16" y="495" width="343" height="152"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XYr-7B-zqe">
-                                <rect key="frame" x="16" y="403" width="343" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1W-nP-jAv">
-                                <rect key="frame" x="224" y="290" width="100" height="30"/>
+                                <rect key="frame" x="164" y="291" width="140" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.054508252209999997" green="0.52157451919999998" blue="0.083333867970000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <state key="normal" title="Favorite">
+                                <state key="normal" title="Save Recipe">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="favoriteDidTouch:" destination="aaY-8S-ZAC" eventType="touchUpInside" id="bcz-Tw-WLD"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Title" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCt-QV-fh2">
+                                <rect key="frame" x="16" y="180" width="343" height="103"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KDP-dY-MmS">
+                                <rect key="frame" x="164" y="401" width="140" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.054508252209999997" green="0.52157451919999998" blue="0.083333867970000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Link to website">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toWebsiteDidTouch:" destination="aaY-8S-ZAC" eventType="touchUpInside" id="REj-el-D6J"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Ingredients" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XvD-SM-3eP">
+                                <rect key="frame" x="16" y="439" width="343" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.44513866159999999" blue="0.39097257330000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="bannerImage" destination="tTb-jY-kPf" id="MsA-jL-xY1"/>
                         <outlet property="ingredientsText" destination="XvD-SM-3eP" id="XmL-YD-oGK"/>
-                        <outlet property="titleLabel" destination="CUN-PS-Req" id="s8z-9j-QuU"/>
-                        <outlet property="urlText" destination="XYr-7B-zqe" id="I92-9O-en2"/>
+                        <outlet property="titleLabel" destination="NCt-QV-fh2" id="hbF-av-H4r"/>
                         <segue destination="kIg-OS-1B6" kind="show" identifier="recipeToHome" id="uH9-TP-cuX"/>
                     </connections>
                 </viewController>
@@ -444,7 +455,7 @@
         <image name="chef-hat-with-a-pencil (1)" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nSt-7P-GOQ"/>
         <segue reference="uH9-TP-cuX"/>
+        <segue reference="2bL-uE-4X9"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -16,10 +16,9 @@ class RecipeViewController: UIViewController {
 //    @IBOutlet weak var recipeIngredients: UITextView!
 //    @IBOutlet weak var recipeURL: UITextView!
     
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var bannerImage: UIImageView!
-    @IBOutlet weak var urlText: UITextView!
     @IBOutlet weak var ingredientsText: UITextView!
+    @IBOutlet weak var titleLabel: UITextView!
     
     
     var recipeTitle: String?
@@ -30,13 +29,19 @@ class RecipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        recipeTitle = globalStruct.searchTitles[globalStruct.currentIndex]
-        recipeURL = globalStruct.searchUrls[globalStruct.currentIndex]
-        recipeImage = globalStruct.searchImages[globalStruct.currentIndex]
-        recipeIngredients = globalStruct.searchIngredients[globalStruct.currentIndex]
+        if globalStruct.searchTitles.count != 0 {
+            recipeTitle = globalStruct.searchTitles[globalStruct.currentIndex]
+            recipeURL = globalStruct.searchUrls[globalStruct.currentIndex]
+            recipeImage = globalStruct.searchImages[globalStruct.currentIndex]
+            recipeIngredients = globalStruct.searchIngredients[globalStruct.currentIndex]
+        } else {
+            recipeTitle = globalStruct.savedTitles[globalStruct.currentIndex]
+            recipeURL = globalStruct.savedUrls[globalStruct.currentIndex]
+            recipeImage = globalStruct.savedImages[globalStruct.currentIndex]
+            recipeIngredients = globalStruct.savedIngredients[globalStruct.currentIndex]
+        }
         
         titleLabel.text = recipeTitle
-        urlText.text = recipeURL
         ingredientsText.text = recipeIngredients
         print(recipeIngredients!)
         
@@ -63,15 +68,19 @@ class RecipeViewController: UIViewController {
     }
     
     @IBAction func favoriteDidTouch(_ sender: Any) {
-        
-        globalStruct.savedTitles = [globalStruct.searchTitles[globalStruct.currentIndex]]
-        globalStruct.savedUrls = [globalStruct.searchUrls[globalStruct.currentIndex]]
-        globalStruct.savedImages = [globalStruct.searchImages[globalStruct.currentIndex]]
-        globalStruct.savedIngredients = [globalStruct.searchIngredients[globalStruct.currentIndex]]
+        globalStruct.savedTitles.append(globalStruct.searchTitles[globalStruct.currentIndex])
+        globalStruct.savedUrls.append(globalStruct.searchUrls[globalStruct.currentIndex])
+        globalStruct.savedImages.append(globalStruct.searchImages[globalStruct.currentIndex])
+        globalStruct.savedIngredients.append(globalStruct.searchIngredients[globalStruct.currentIndex])
         
         self.performSegue(withIdentifier: "recipeToHome", sender: self)
     }
     
+    @IBAction func toWebsiteDidTouch(_ sender: Any) {
+        if let url = NSURL(string: recipeURL!) {
+            UIApplication.shared.openURL(url as URL)
+        }
+    }
     
 
     /*

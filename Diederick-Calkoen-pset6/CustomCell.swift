@@ -13,9 +13,9 @@ class CustomCell: UITableViewCell {
     // MARK: Outlets
 
     @IBOutlet weak var savedImage: UIImageView!
-    @IBOutlet weak var savedTitle: UILabel!
-    
-    @IBOutlet weak var searchTitle: UILabel!
+    @IBOutlet weak var savedTitle: UITextView!
+
+    @IBOutlet weak var searchTitle: UITextView!
     @IBOutlet weak var searchImage: UIImageView!
     
     override func awakeFromNib() {
