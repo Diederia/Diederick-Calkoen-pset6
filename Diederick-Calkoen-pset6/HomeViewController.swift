@@ -15,18 +15,39 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var textFieldRecipeSearch: UITextField!
     @IBOutlet weak var tableView: UITableView!
 
+    let id = "\(globalStruct.userID!)"
+    var ref = FIRDatabase.database().reference()
     var currentIndex: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.reloadTableView()
+
+        
+        ref.child("users").child(id).child("recipes").observeSingleEvent(of: .value, with: { (snapshot) in
+            if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                for child in result {
+                    //do your logic and validation here
+                    if let dictionary = child.value as? [String: AnyObject] {
+                        let images = dictionary["image"]
+                        let ingredients = dictionary["ingredients"]
+                        let titles = dictionary["title"]
+                        let urls = dictionary["url"]
+                        globalStruct.savedImages.append(images as! String)
+                        globalStruct.savedIngredients.append(ingredients as! String)
+                        globalStruct.savedTitles.append(titles as! String)
+                        globalStruct.savedUrls.append(urls as! String)
+                    }
+                }
+            }
+            self.performSelector(onMainThread: #selector(HomeViewController.reloadTableView), with: nil, waitUntilDone: true)
+        })
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+
         
-        self.clearSearchData()
     }
     
     // MARK: Actions
@@ -54,12 +75,10 @@ class HomeViewController: UIViewController {
         }
     }
     func reloadTableView() {
-        if self.tableView != nil {
-            self.tableView.reloadData()
-        }
+        self.tableView.reloadData()
     }
+    
     func updateStorage() {
-
     }
     
     func clearSearchData() {
@@ -119,30 +138,18 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         globalStruct.currentIndex = indexPath.row
         self.performSegue(withIdentifier: "savedToRecipe", sender: self)
     }
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let recipeVC = segue.destination as! RecipeViewController
-//        recipeVC.recipeTitle = self.titles[self.tableView.indexPathForSelectedRow!.row]
-//        recipeVC.recipeURL = self.urls[self.tableView.indexPathForSelectedRow!.row]
-//        recipeVC.recipeImage = self.images[self.tableView.indexPathForSelectedRow!.row]
-//        recipeVC.recipeIngredients = self.ingredients[self.tableView.indexPathForSelectedRow!.row]
-//    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+            if editingStyle == UITableViewCellEditingStyle.delete {
+                let titleToDelete = globalStruct.savedTitles[indexPath.row]
+                (ref.child("users").child(id).child("recipes").child("\(titleToDelete)")).removeValue()
+                globalStruct.savedTitles.remove(at: indexPath.row)
+                globalStruct.savedIngredients.remove(at: indexPath.row)
+                globalStruct.savedImages.remove(at: indexPath.row)
+                globalStruct.savedUrls.remove(at: indexPath.row)
+                self.reloadTableView()
+        }
+    }
+    
 }
-//
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        let db = DatabaseHelper()
-//        if editingStyle == UITableViewCellEditingStyle.delete {
-//            
-//            let current = globalArrays.detailArray[indexPath.row]
-//            
-//            do {
-//                try db!.deleteToDo(id: idCurrentList, toDoName: current)
-//            } catch {
-//                print(error)
-//            }
-//            self.loadToDo(id: idCurrentList)
-//            print(globalArrays.listArray)
-//            self.loadView()
-//            self.reloadTableView()
-//        }
-//    }
-//}
+

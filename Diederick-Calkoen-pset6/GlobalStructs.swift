@@ -15,6 +15,8 @@ struct globalStruct {
     static var userEmail = FIRAuth.auth()?.currentUser?.email
     static var userID = FIRAuth.auth()?.currentUser?.uid
     
+    static var currentIndex = Int()
+    
     // MARK: Favorites info
     static var savedTitles: Array<String> = []
     static var savedImages: Array<String> = []
@@ -24,13 +26,14 @@ struct globalStruct {
     
     // MARK: Search info
     static var recipeSearchRequest = String()
-    static var currentIndex = Int()
     static var searchTitles: Array<String> = []
     static var searchImages: Array<String> = []
     static var searchUrls: Array<String> = []
     static var searchIngredients: Array<String> = []
     
-    // MARK: Functions
-
-    
+    // MARK: Recipe info
+     static var recipeTitle = String()
+     static var recipeImage = String()
+     static var recipeUrl = String()
+     static var recipeIngredients = String()
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RecipeViewController: UIViewController {
     
@@ -19,8 +20,10 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var bannerImage: UIImageView!
     @IBOutlet weak var ingredientsText: UITextView!
     @IBOutlet weak var titleLabel: UITextView!
-    
-    
+    @IBOutlet weak var saveButton: UIButton!
+
+    let user = FIRAuth.auth()?.currentUser
+    var ref = FIRDatabase.database().reference()
     var recipeTitle: String?
     var recipeURL: String?
     var recipeImage: String?
@@ -30,11 +33,15 @@ class RecipeViewController: UIViewController {
         super.viewDidLoad()
         
         if globalStruct.searchTitles.count != 0 {
+            print("test2")
+            self.saveButton.isHidden = false
             recipeTitle = globalStruct.searchTitles[globalStruct.currentIndex]
             recipeURL = globalStruct.searchUrls[globalStruct.currentIndex]
             recipeImage = globalStruct.searchImages[globalStruct.currentIndex]
             recipeIngredients = globalStruct.searchIngredients[globalStruct.currentIndex]
         } else {
+            print("test1")
+            self.saveButton.isHidden = true
             recipeTitle = globalStruct.savedTitles[globalStruct.currentIndex]
             recipeURL = globalStruct.savedUrls[globalStruct.currentIndex]
             recipeImage = globalStruct.savedImages[globalStruct.currentIndex]
@@ -43,9 +50,6 @@ class RecipeViewController: UIViewController {
         
         titleLabel.text = recipeTitle
         ingredientsText.text = recipeIngredients
-        print(recipeIngredients!)
-        
-        print(recipeImage!)
         
         if (recipeImage != "") {
             let image = recipeImage!
@@ -73,12 +77,28 @@ class RecipeViewController: UIViewController {
         globalStruct.savedImages.append(globalStruct.searchImages[globalStruct.currentIndex])
         globalStruct.savedIngredients.append(globalStruct.searchIngredients[globalStruct.currentIndex])
         
+        let user = "\(globalStruct.userEmail!)"
+        print(user)
+        let id = "\(globalStruct.userID!)"
+        print(id)
+        let title = "\(globalStruct.searchTitles[globalStruct.currentIndex])"
+        print(title)
+        let url = "\(globalStruct.searchUrls[globalStruct.currentIndex])"
+        print(url)
+        let image = "\(globalStruct.searchImages[globalStruct.currentIndex])"
+        print(image)
+        let ingredients = "\(globalStruct.searchIngredients[globalStruct.currentIndex])"
+        print(ingredients)
+        
+        self.ref.child("users").child(id).child("recipes").child(title).setValue(["title":title, "url":url, "image":image, "ingredients": ingredients])
+        
+        globalStruct.searchTitles.removeAll()
         self.performSegue(withIdentifier: "recipeToHome", sender: self)
     }
     
     @IBAction func toWebsiteDidTouch(_ sender: Any) {
         if let url = NSURL(string: recipeURL!) {
-            UIApplication.shared.openURL(url as URL)
+            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
     }
     

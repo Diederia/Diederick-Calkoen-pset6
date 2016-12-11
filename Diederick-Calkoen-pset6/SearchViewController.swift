@@ -49,12 +49,7 @@ class SearchViewController: UIViewController {
         } else if globalStruct.recipeSearchRequest != "" {
             searchRequest = globalStruct.recipeSearchRequest.replacingOccurrences(of: " ", with: "," )
         } else {
-            let alertController = UIAlertController(title: "No input provided", message:
-                "Enter a recipe title or ingredient.", preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-            
-            self.present(alertController, animated: true, completion: nil)
-            return
+            self.alert(title: "No input provided", message: "Enter a recipe title or ingredient.")
         }
         
         // make url, also for search of more than one ingredient.
@@ -62,8 +57,6 @@ class SearchViewController: UIViewController {
         
         // Source: http://www.learnswiftonline.com/mini-tutorials/how-to-download-and-read-json/
         let requestURL: NSURL = NSURL(string: "http://www.recipepuppy.com/api/?q=" + searchRequest!)!
-        print("test1")
-        print(requestURL)
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         let session = URLSession.shared
         let task = session.dataTask(with: urlRequest as URLRequest) {
@@ -75,13 +68,12 @@ class SearchViewController: UIViewController {
             if (statusCode == 200) {
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options: []) as! NSDictionary
-                    
-                    if (json["results"] as? String == "") {
-                        // nog een alert maken
-                        return
-                    }
-                    if let results = json["results"] as? [[String: AnyObject]] {
 
+                    if let results = json["results"] as? [[String: AnyObject]] {
+                        if results.count == 0 {
+                            self.alert(title: "Not found", message: "There is no recipe found, please enter a ingredient or recipe name.")
+                        }
+                        
                         for result in results {
                             globalStruct.searchTitles.append((result["title"] as? String)!)
                             globalStruct.searchImages.append((result["thumbnail"] as? String)!)
@@ -94,22 +86,11 @@ class SearchViewController: UIViewController {
                     print ("Error with JSON: \(error)")
                 }
             } else if (statusCode == 400) {
-                let alertController = UIAlertController(title: "Error 400", message:
-                    "The server cannot or will not process the request due to an apparent client error", preferredStyle: UIAlertControllerStyle.alert)
-                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-                self.present(alertController, animated: true, completion: nil)
-                return
-                
+                self.alert(title: "Error 400", message: "The server cannot or will not process the request due to an apparent client error")
             } else {
-                let alertController = UIAlertController(title: "Error", message:
-                    "Unknown error", preferredStyle: UIAlertControllerStyle.alert)
-                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-                self.present(alertController, animated: true, completion: nil)
-                return
+                self.alert(title: "Error", message: "Unknown error")
             }
-            
         }
-        
         task.resume()
         globalStruct.recipeSearchRequest.removeAll()
     }
@@ -123,9 +104,14 @@ class SearchViewController: UIViewController {
     }
     
     func reloadTableView() {
-        if self.tableView != nil {
-            self.tableView.reloadData()
-        }
+        self.tableView.reloadData()
+    }
+    
+    func alert(title: String, message: String) {
+        let alertController = UIAlertController(title: title , message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+        return
     }
     
     /*
@@ -168,32 +154,12 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         currentIndex = indexPath.row
         return cell
     }
-    
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         tableView.deselectRow(at: indexPath, animated: true)
         globalStruct.currentIndex = indexPath.row
         self.performSegue(withIdentifier: "resultToRecipe", sender: self)
     }
 }
-//
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        let db = DatabaseHelper()
-//        if editingStyle == UITableViewCellEditingStyle.delete {
-//
-//            let current = globalArrays.detailArray[indexPath.row]
-//
-//            do {
-//                try db!.deleteToDo(id: idCurrentList, toDoName: current)
-//            } catch {
-//                print(error)
-//            }
-//            self.loadToDo(id: idCurrentList)
-//            print(globalArrays.listArray)
-//            self.loadView()
-//            self.reloadTableView()
-//        }
-//    }
-//}
+
 
