@@ -41,9 +41,10 @@ class SearchViewController: UIViewController {
     // MARK: Functions
     func searchRecipe() {
         
-        // MARK: Clear all global arrays of search
+        // MARK: Clear all search global arrays
         self.clearSearchData()
         
+        // MARK: Configurate search request string, if there is no input so alert
         if textFieldRecipeSearch.text != "" {
             searchRequest = textFieldRecipeSearch.text?.replacingOccurrences(of: " ", with: "," )
         } else if globalStruct.recipeSearchRequest != "" {
@@ -52,9 +53,7 @@ class SearchViewController: UIViewController {
             self.alert(title: "No input provided", message: "Enter a recipe title or ingredient.")
         }
         
-        // make url, also for search of more than one ingredient.
-
-        
+        // MARK: JSON request
         // Source: http://www.learnswiftonline.com/mini-tutorials/how-to-download-and-read-json/
         let requestURL: NSURL = NSURL(string: "http://www.recipepuppy.com/api/?q=" + searchRequest!)!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)

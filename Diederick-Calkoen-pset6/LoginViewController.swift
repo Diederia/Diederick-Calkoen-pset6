@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         // Do any additional setup after loading the view.
     }
 
@@ -31,7 +32,7 @@ class LoginViewController: UIViewController {
                                    password: textFieldLoginPassword.text!) {
                 (user, error) in
                 if error != nil {
-                    self.alertError()
+                    self.alert(title: "Error with loggig in", message: "Enter a valid email and password.")
                 }
                 self.performSegue(withIdentifier: "toHomeView", sender: self)
         }
@@ -42,9 +43,8 @@ class LoginViewController: UIViewController {
     }
 
     // MARK: Alert function
-    func alertError() {
-        let alertController = UIAlertController(title: "Error with loggig in", message:
-            "Enter a valid email and password.", preferredStyle: UIAlertControllerStyle.alert)
+    func alert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
         
         self.present(alertController, animated: true, completion: nil)

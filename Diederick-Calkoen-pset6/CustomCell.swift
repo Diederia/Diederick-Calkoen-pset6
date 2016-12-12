@@ -10,11 +10,11 @@ import UIKit
 
 class CustomCell: UITableViewCell {
     
-    // MARK: Outlets
-
+    // MARK: Outlets for saved recipes
     @IBOutlet weak var savedImage: UIImageView!
     @IBOutlet weak var savedTitle: UITextView!
 
+    // MARK: Outlets for search recipes
     @IBOutlet weak var searchTitle: UITextView!
     @IBOutlet weak var searchImage: UIImageView!
     

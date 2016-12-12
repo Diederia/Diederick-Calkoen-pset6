@@ -15,6 +15,7 @@ struct globalStruct {
     static var userEmail = FIRAuth.auth()?.currentUser?.email
     static var userID = FIRAuth.auth()?.currentUser?.uid
     
+    // Mark: Tableview index
     static var currentIndex = Int()
     
     // MARK: Favorites info
@@ -31,9 +32,10 @@ struct globalStruct {
     static var searchUrls: Array<String> = []
     static var searchIngredients: Array<String> = []
     
-    // MARK: Recipe info
+    // MARK: Recipe info, IS DEZE WEL NODIG
      static var recipeTitle = String()
      static var recipeImage = String()
      static var recipeUrl = String()
      static var recipeIngredients = String()
 }
+

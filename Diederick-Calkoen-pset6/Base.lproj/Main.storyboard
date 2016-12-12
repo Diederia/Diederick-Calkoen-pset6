@@ -63,7 +63,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Elm-lb-rwf" id="SRb-xg-AFw">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zka-8M-y99">
@@ -94,12 +94,26 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.44513866159999999" blue="0.39097257330000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="JdQ-we-SDr"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="JdQ-we-SDr">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="euZ-pd-Cob">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VNE-3A-5jS">
+                                <rect key="frame" x="16" y="7" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutDidTouch:" destination="lnj-gZ-W8i" eventType="touchUpInside" id="JZG-TB-016"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="ks9-zX-xvO" id="eg9-XG-OEl"/>
                         <outlet property="textFieldRecipeSearch" destination="8hn-If-dRw" id="cVJ-pW-WlK"/>
                         <segue destination="1Cy-ZQ-H5O" kind="show" identifier="searchToResults" id="XBg-9g-naF"/>
                         <segue destination="aaY-8S-ZAC" kind="show" identifier="savedToRecipe" id="nSt-7P-GOQ"/>
+                        <segue destination="yFo-ig-bg0" kind="show" identifier="homeToLogin" id="pBV-df-viN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5tr-q6-ZX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -131,7 +145,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T3p-mL-Ecu" id="dZj-NF-Bf5">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="90"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gJA-bP-kro">
@@ -456,7 +470,8 @@
         <image name="chef-hat-with-a-pencil (1)" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="pBV-df-viN"/>
         <segue reference="T9F-2J-81J"/>
-        <segue reference="2bL-uE-4X9"/>
+        <segue reference="nSt-7P-GOQ"/>
     </inferredMetricsTieBreakers>
 </document>

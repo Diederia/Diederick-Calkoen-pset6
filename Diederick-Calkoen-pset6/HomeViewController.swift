@@ -17,17 +17,22 @@ class HomeViewController: UIViewController {
 
     let id = "\(globalStruct.userID!)"
     var ref = FIRDatabase.database().reference()
-    var currentIndex: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        globalStruct.savedTitles.removeAll()
+        globalStruct.savedUrls.removeAll()
+        globalStruct.savedImages.removeAll()
+        globalStruct.savedIngredients.removeAll()
+
+        // Get data from firebase
         ref.child("users").child(id).child("recipes").observeSingleEvent(of: .value, with: { (snapshot) in
             if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for child in result {
-                    //do your logic and validation here
                     if let dictionary = child.value as? [String: AnyObject] {
+                        
+                        // Save data
                         let images = dictionary["image"]
                         let ingredients = dictionary["ingredients"]
                         let titles = dictionary["title"]
@@ -39,6 +44,7 @@ class HomeViewController: UIViewController {
                     }
                 }
             }
+            // Reload table view
             self.performSelector(onMainThread: #selector(HomeViewController.reloadTableView), with: nil, waitUntilDone: true)
         })
     }
@@ -46,8 +52,6 @@ class HomeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-
-        
     }
     
     // MARK: Actions
@@ -58,6 +62,19 @@ class HomeViewController: UIViewController {
         self.searchRecipe()
     }
     
+    @IBAction func logoutDidTouch(_ sender: Any) {
+        print("test11")
+        let alertController = UIAlertController(title: "Logout", message:
+            "Are you sure you want to logout?", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default,handler: nil))
+        alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default,handler: {
+            (_)in
+            try! FIRAuth.auth()!.signOut()
+            self.performSegue(withIdentifier: "homeToLogin", sender: self)
+        }))
+        self.present(alertController, animated: true, completion: nil)
+    }
+
 
     // MARK: Functions 
     func searchRecipe() {
@@ -78,12 +95,8 @@ class HomeViewController: UIViewController {
         self.tableView.reloadData()
     }
     
-    func updateStorage() {
-    }
-    
     func clearSearchData() {
         globalStruct.recipeSearchRequest.removeAll()
-        globalStruct.currentIndex = 0
         globalStruct.searchTitles.removeAll()
         globalStruct.searchImages.removeAll()
         globalStruct.searchUrls.removeAll()
@@ -127,22 +140,24 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             cell.savedImage.image = UIImage(named: "no-image")
             
         }
-        currentIndex = indexPath.row
         return cell
     }
 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        currentIndex = indexPath.row
         globalStruct.currentIndex = indexPath.row
         self.performSegue(withIdentifier: "savedToRecipe", sender: self)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
             if editingStyle == UITableViewCellEditingStyle.delete {
+                
+                // MARK: Remove from firebase
                 let titleToDelete = globalStruct.savedTitles[indexPath.row]
                 (ref.child("users").child(id).child("recipes").child("\(titleToDelete)")).removeValue()
+                
+                // MARK: Remove from glabal struct
                 globalStruct.savedTitles.remove(at: indexPath.row)
                 globalStruct.savedIngredients.remove(at: indexPath.row)
                 globalStruct.savedImages.remove(at: indexPath.row)

@@ -12,17 +12,12 @@ import Firebase
 class RecipeViewController: UIViewController {
     
     // MARK: Outlets
-//    @IBOutlet weak var recipeTitle: UILabel!
-//    @IBOutlet weak var recipeImage: UIImageView!
-//    @IBOutlet weak var recipeIngredients: UITextView!
-//    @IBOutlet weak var recipeURL: UITextView!
-    
     @IBOutlet weak var bannerImage: UIImageView!
     @IBOutlet weak var ingredientsText: UITextView!
     @IBOutlet weak var titleLabel: UITextView!
     @IBOutlet weak var saveButton: UIButton!
 
-    let user = FIRAuth.auth()?.currentUser
+    
     var ref = FIRDatabase.database().reference()
     var recipeTitle: String?
     var recipeURL: String?
@@ -32,15 +27,16 @@ class RecipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // MARK: From search to single recipe
         if globalStruct.searchTitles.count != 0 {
-            print("test2")
             self.saveButton.isHidden = false
             recipeTitle = globalStruct.searchTitles[globalStruct.currentIndex]
             recipeURL = globalStruct.searchUrls[globalStruct.currentIndex]
             recipeImage = globalStruct.searchImages[globalStruct.currentIndex]
             recipeIngredients = globalStruct.searchIngredients[globalStruct.currentIndex]
+            
+        // MARK: From saved to single recipe
         } else {
-            print("test1")
             self.saveButton.isHidden = true
             recipeTitle = globalStruct.savedTitles[globalStruct.currentIndex]
             recipeURL = globalStruct.savedUrls[globalStruct.currentIndex]
@@ -72,23 +68,13 @@ class RecipeViewController: UIViewController {
     }
     
     @IBAction func favoriteDidTouch(_ sender: Any) {
-        globalStruct.savedTitles.append(globalStruct.searchTitles[globalStruct.currentIndex])
-        globalStruct.savedUrls.append(globalStruct.searchUrls[globalStruct.currentIndex])
-        globalStruct.savedImages.append(globalStruct.searchImages[globalStruct.currentIndex])
-        globalStruct.savedIngredients.append(globalStruct.searchIngredients[globalStruct.currentIndex])
         
-        let user = "\(globalStruct.userEmail!)"
-        print(user)
+//        let user = "\(globalStruct.userEmail!)"
         let id = "\(globalStruct.userID!)"
-        print(id)
         let title = "\(globalStruct.searchTitles[globalStruct.currentIndex])"
-        print(title)
         let url = "\(globalStruct.searchUrls[globalStruct.currentIndex])"
-        print(url)
         let image = "\(globalStruct.searchImages[globalStruct.currentIndex])"
-        print(image)
         let ingredients = "\(globalStruct.searchIngredients[globalStruct.currentIndex])"
-        print(ingredients)
         
         self.ref.child("users").child(id).child("recipes").child(title).setValue(["title":title, "url":url, "image":image, "ingredients": ingredients])
         
