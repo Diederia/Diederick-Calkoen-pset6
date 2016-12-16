@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E62904B951F9D244792C53A02CDE479D6F3E9FA0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E62904B951F9D244792C53A02CDE479D6F3E9FA0" : 9223372036854775807,
+    "E74E4DC7F47DE34C05B088189CEF2828FF15F520" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8C52A19C-D320-42AC-B054-26FE7A0329EF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E62904B951F9D244792C53A02CDE479D6F3E9FA0" : "Diederick-Calkoen-pset6\/",
+    "E74E4DC7F47DE34C05B088189CEF2828FF15F520" : "Diederick-Calkoen-pset5\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Diederick-Calkoen-pset6",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Diederick-Calkoen-pset6.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Diederia\/Diederick-Calkoen-pset6.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E62904B951F9D244792C53A02CDE479D6F3E9FA0"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Diederia\/Diederick-Calkoen-pset5.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E74E4DC7F47DE34C05B088189CEF2828FF15F520"
+    }
+  ]
+}
