@@ -16,12 +16,12 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var textFieldRecipeSearch: UITextField!
     
     // MARK: Variables
-    var noResult = Bool(false)
     var searchRequest: String?
+    var numberOfRows = Int()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        numberOfRows = -1
         searchRecipe()
     }
 
@@ -116,9 +116,13 @@ class SearchViewController: UIViewController {
 // MARK: - Table View
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numberOfRows = globalStruct.searchTitles.count
         
-        // Alert when there is no result
+        // Error handeling when there is no result
+        if globalStruct.searchTitles.count > 0 {
+            numberOfRows = globalStruct.searchTitles.count
+        } else if numberOfRows != -1 {
+            numberOfRows = 0
+        }
         if numberOfRows == 0 {
             self.alert(title: "Not found", message: "There is no recipe found, please enter a ingredient or recipe name.")
         }
