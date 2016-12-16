@@ -5,7 +5,7 @@
 * 10684883 
 * 09-12-2016
 
-* In this app the user could search for recipes by ingridients or names and add it to a favoritelist. The app uses the recipepuppy api to get the information. If the user clicks on a specific recipe details of the recipe is showed and the link to the source website. To use the app you first need to create a account. You will stayed loggid afterwards. 
+* In this app the user could search for recipes by ingredients or names and add it to a favorite list. The app uses the recipepuppy api to get the information. If the user clicks on a specific recipe details of the recipe is showed and the link to the source website. To use the app you first need to create an account. You will stay logged in when you exit the app.
 
 * Login screen:
 
