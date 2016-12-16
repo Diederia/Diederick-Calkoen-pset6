@@ -17,17 +17,20 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var titleLabel: UITextView!
     @IBOutlet weak var saveButton: UIButton!
 
-    
+    // MARK: Variables
     var ref = FIRDatabase.database().reference()
     var recipeTitle: String?
     var recipeURL: String?
     var recipeImage: String?
     var recipeIngredients: String?
+    var currentIndex: Int?
+    var recipeRef: FIRDatabaseReference!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // MARK: From search to single recipe
+        // From search to single recipe
         if globalStruct.searchTitles.count != 0 {
             self.saveButton.isHidden = false
             recipeTitle = globalStruct.searchTitles[globalStruct.currentIndex]
@@ -35,7 +38,7 @@ class RecipeViewController: UIViewController {
             recipeImage = globalStruct.searchImages[globalStruct.currentIndex]
             recipeIngredients = globalStruct.searchIngredients[globalStruct.currentIndex]
             
-        // MARK: From saved to single recipe
+        // From saved to single recipe
         } else {
             self.saveButton.isHidden = true
             recipeTitle = globalStruct.savedTitles[globalStruct.currentIndex]
@@ -67,16 +70,16 @@ class RecipeViewController: UIViewController {
         
     }
     
+    // MARK: Actions
     @IBAction func favoriteDidTouch(_ sender: Any) {
+        let id = String(globalStruct.userID!)
+        let title = String(globalStruct.searchTitles[globalStruct.currentIndex])
+        let url = String(globalStruct.searchUrls[globalStruct.currentIndex])
+        let image = String(globalStruct.searchImages[globalStruct.currentIndex])
+        let ingredients = String(globalStruct.searchIngredients[globalStruct.currentIndex])
         
-//        let user = "\(globalStruct.userEmail!)"
-        let id = "\(globalStruct.userID!)"
-        let title = "\(globalStruct.searchTitles[globalStruct.currentIndex])"
-        let url = "\(globalStruct.searchUrls[globalStruct.currentIndex])"
-        let image = "\(globalStruct.searchImages[globalStruct.currentIndex])"
-        let ingredients = "\(globalStruct.searchIngredients[globalStruct.currentIndex])"
-        
-        self.ref.child("users").child(id).child("recipes").child(title).setValue(["title":title, "url":url, "image":image, "ingredients": ingredients])
+        recipeRef = ref.child("users").child(id!).child("recipes")
+        self.recipeRef.child(title!).setValue(["title":title, "url":url, "image":image, "ingredients": ingredients])
         
         globalStruct.searchTitles.removeAll()
         self.performSegue(withIdentifier: "recipeToHome", sender: self)
@@ -87,16 +90,4 @@ class RecipeViewController: UIViewController {
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

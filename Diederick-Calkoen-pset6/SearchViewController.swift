@@ -11,17 +11,17 @@ import Firebase
 
 class SearchViewController: UIViewController {
     
-    
+    // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textFieldRecipeSearch: UITextField!
     
+    // MARK: Variables
+    var noResult = Bool(false)
     var searchRequest: String?
-    var currentIndex: Int?
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         searchRecipe()
     }
 
@@ -30,6 +30,7 @@ class SearchViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: Actions
     @IBAction func returnDidTouch(_ sender: Any) {
         searchRecipe()
     }
@@ -41,10 +42,10 @@ class SearchViewController: UIViewController {
     // MARK: Functions
     func searchRecipe() {
         
-        // MARK: Clear all search global arrays
+        // Clear all search global arrays
         self.clearSearchData()
         
-        // MARK: Configurate search request string, if there is no input so alert
+        // Configurate search request string, if there is no input so alert
         if textFieldRecipeSearch.text != "" {
             searchRequest = textFieldRecipeSearch.text?.replacingOccurrences(of: " ", with: "," )
         } else if globalStruct.recipeSearchRequest != "" {
@@ -53,7 +54,8 @@ class SearchViewController: UIViewController {
             self.alert(title: "No input provided", message: "Enter a recipe title or ingredient.")
         }
         
-        // MARK: JSON request
+        
+        // JSON request
         // Source: http://www.learnswiftonline.com/mini-tutorials/how-to-download-and-read-json/
         let requestURL: NSURL = NSURL(string: "http://www.recipepuppy.com/api/?q=" + searchRequest!)!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
@@ -69,16 +71,13 @@ class SearchViewController: UIViewController {
                     let json = try JSONSerialization.jsonObject(with: data!, options: []) as! NSDictionary
 
                     if let results = json["results"] as? [[String: AnyObject]] {
-                        if results.count == 0 {
-                            self.alert(title: "Not found", message: "There is no recipe found, please enter a ingredient or recipe name.")
+                            for result in results {
+                                globalStruct.searchTitles.append((result["title"] as? String)!)
+                                globalStruct.searchImages.append((result["thumbnail"] as? String)!)
+                                globalStruct.searchUrls.append((result["href"] as? String)!)
+                                globalStruct.searchIngredients.append((result["ingredients"] as? String)!)
                         }
-                        
-                        for result in results {
-                            globalStruct.searchTitles.append((result["title"] as? String)!)
-                            globalStruct.searchImages.append((result["thumbnail"] as? String)!)
-                            globalStruct.searchUrls.append((result["href"] as? String)!)
-                            globalStruct.searchIngredients.append((result["ingredients"] as? String)!)
-                        }
+                        // Reload table view
                         self.performSelector(onMainThread: #selector(SearchViewController.reloadTableView), with: nil, waitUntilDone: true)
                     }
                 } catch {
@@ -91,11 +90,11 @@ class SearchViewController: UIViewController {
             }
         }
         task.resume()
+        textFieldRecipeSearch.text = ""
         globalStruct.recipeSearchRequest.removeAll()
     }
     
     func clearSearchData() {
-        globalStruct.currentIndex = 0
         globalStruct.searchTitles.removeAll()
         globalStruct.searchImages.removeAll()
         globalStruct.searchUrls.removeAll()
@@ -110,25 +109,20 @@ class SearchViewController: UIViewController {
         let alertController = UIAlertController(title: title , message: message, preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
         self.present(alertController, animated: true, completion: nil)
-        return
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
 // MARK: - Table View
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return globalStruct.searchTitles.count
+        let numberOfRows = globalStruct.searchTitles.count
+        
+        // Alert when there is no result
+        if numberOfRows == 0 {
+            self.alert(title: "Not found", message: "There is no recipe found, please enter a ingredient or recipe name.")
+        }
+        return numberOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -150,7 +144,6 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
             cell.searchImage.image = UIImage(named: "no-image")
             
         }
-        currentIndex = indexPath.row
         return cell
     }
 

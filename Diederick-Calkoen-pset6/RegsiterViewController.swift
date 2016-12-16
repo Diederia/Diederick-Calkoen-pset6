@@ -54,15 +54,16 @@ class RegsiterViewController: UIViewController {
                 return
             }
             FIRAuth.auth()!.signIn(withEmail: self.textFieldRegisterEmail.text!, password: self.textFieldRegisterPassword.text!)
+            globalStruct.userID = FIRAuth.auth()?.currentUser?.uid
+
         }
 
         // Registering completed
         let alertController = UIAlertController(title: "Registering compeleted", message: "You are now registered", preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: {
-            (_)in
-            self.performSegue(withIdentifier: "registerToHomeView", sender: self)
-        })
-        alertController.addAction(dismissAction)
+            alertController.addAction(UIAlertAction(title: "Loggin", style: UIAlertActionStyle.default, handler: {
+                (_)in
+                self.performSegue(withIdentifier: "registerToHomeView", sender: self)
+            }))
         self.present(alertController, animated: true, completion: nil)
     }
     
@@ -84,15 +85,4 @@ class RegsiterViewController: UIViewController {
         
         self.present(alertController, animated: true, completion: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

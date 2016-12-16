@@ -15,11 +15,14 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var textFieldRecipeSearch: UITextField!
     @IBOutlet weak var tableView: UITableView!
 
-    let id = "\(globalStruct.userID!)"
+    let id = String(globalStruct.userID!)
     var ref = FIRDatabase.database().reference()
-
+    var recipeRef: FIRDatabaseReference!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        recipeRef = ref.child("users").child(id!).child("recipes")
         
         globalStruct.savedTitles.removeAll()
         globalStruct.savedUrls.removeAll()
@@ -27,7 +30,7 @@ class HomeViewController: UIViewController {
         globalStruct.savedIngredients.removeAll()
 
         // Get data from firebase
-        ref.child("users").child(id).child("recipes").observeSingleEvent(of: .value, with: { (snapshot) in
+        recipeRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for child in result {
                     if let dictionary = child.value as? [String: AnyObject] {
@@ -102,17 +105,6 @@ class HomeViewController: UIViewController {
         globalStruct.searchUrls.removeAll()
         globalStruct.searchIngredients.removeAll()
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 // MARK: - Table View
@@ -150,12 +142,20 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         self.performSegue(withIdentifier: "savedToRecipe", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "savedToRecipe" {
+            let indexPath = tableView.indexPathForSelectedRow
+            let destination = segue.destination as? RecipeViewController
+            destination?.currentIndex = indexPath?.row
+        }
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
             if editingStyle == UITableViewCellEditingStyle.delete {
                 
                 // MARK: Remove from firebase
                 let titleToDelete = globalStruct.savedTitles[indexPath.row]
-                (ref.child("users").child(id).child("recipes").child("\(titleToDelete)")).removeValue()
+                (recipeRef.child(String(titleToDelete))).removeValue()
                 
                 // MARK: Remove from glabal struct
                 globalStruct.savedTitles.remove(at: indexPath.row)

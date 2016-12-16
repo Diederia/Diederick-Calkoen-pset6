@@ -92,21 +92,69 @@
 		E95C6DF01DF414E800ADEDFC /* Diederick-Calkoen-pset6 */ = {
 			isa = PBXGroup;
 			children = (
-				E95C6DF11DF414E800ADEDFC /* AppDelegate.swift */,
+				E9B1F5291E01679400985158 /* Other */,
+				E9B1F5261E01677000985158 /* Controllers */,
+				E9B1F5271E01678700985158 /* Cells */,
+				E9B1F5281E01678D00985158 /* Models */,
+				E9B1F52A1E01679D00985158 /* Storyboards */,
+				E9BA0D181DF94A44002A8E81 /* Assets.xcassets */,
+				E9B1F52B1E0167A600985158 /* Support */,
+			);
+			path = "Diederick-Calkoen-pset6";
+			sourceTree = "<group>";
+		};
+		E9B1F5261E01677000985158 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				E9BA0D121DF89513002A8E81 /* LoginViewController.swift */,
 				E9BA0D151DF944C3002A8E81 /* RegsiterViewController.swift */,
 				E9BA0D101DF891F2002A8E81 /* HomeViewController.swift */,
 				E9B563B31DF97A8B004F3731 /* SearchViewController.swift */,
 				E9B563BA1DFB0E75004F3731 /* RecipeViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		E9B1F5271E01678700985158 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
 				E9B563A91DF96A78004F3731 /* CustomCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		E9B1F5281E01678D00985158 /* Models */ = {
+			isa = PBXGroup;
+			children = (
 				E9B563B51DF9E3E1004F3731 /* GlobalStructs.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		E9B1F5291E01679400985158 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				E95C6DF11DF414E800ADEDFC /* AppDelegate.swift */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		E9B1F52A1E01679D00985158 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
 				E9B563BC1DFB3CBB004F3731 /* Main.storyboard */,
-				E9BA0D181DF94A44002A8E81 /* Assets.xcassets */,
 				E95C6DFA1DF414E800ADEDFC /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		E9B1F52B1E0167A600985158 /* Support */ = {
+			isa = PBXGroup;
+			children = (
 				E95C6DFD1DF414E800ADEDFC /* Info.plist */,
 				E98776FD1DFBF2A700CFDD9B /* GoogleService-Info.plist */,
 			);
-			path = "Diederick-Calkoen-pset6";
+			name = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,6 +417,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.mprog.Diederick-Calkoen-pset6";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -382,6 +431,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.mprog.Diederick-Calkoen-pset6";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -34,6 +34,7 @@ class LoginViewController: UIViewController {
                 if error != nil {
                     self.alert(title: "Error with loggig in", message: "Enter a valid email and password.")
                 }
+                globalStruct.userID = FIRAuth.auth()?.currentUser?.uid
                 self.performSegue(withIdentifier: "toHomeView", sender: self)
         }
     }
@@ -49,15 +50,4 @@ class LoginViewController: UIViewController {
         
         self.present(alertController, animated: true, completion: nil)
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

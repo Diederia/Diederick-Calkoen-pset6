@@ -31,6 +31,7 @@ struct globalStruct {
     static var searchImages: Array<String> = []
     static var searchUrls: Array<String> = []
     static var searchIngredients: Array<String> = []
+    static var searchEmpty: Array<String> = []
     
     // MARK: Recipe info, IS DEZE WEL NODIG
      static var recipeTitle = String()
