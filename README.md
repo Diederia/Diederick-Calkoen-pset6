@@ -16,9 +16,11 @@
 ![alt text] (https://github.com/Diederia/Diederick-Calkoen-pset6/blob/master/Docs/Screen%20Shot%202016-12-16%20at%2022.40.14.png)
 
 * Home screen with saved recipes:
+
 ![alt text] (https://github.com/Diederia/Diederick-Calkoen-pset6/blob/master/Docs/Screen%20Shot%202016-12-16%20at%2023.13.33.png)
 
 * Search screen with patatoes as search request:
+
 ![alt text] (https://github.com/Diederia/Diederick-Calkoen-pset6/blob/master/Docs/Screen%20Shot%202016-12-16%20at%2023.37.37.png)
 
 * Single recipe screen:
